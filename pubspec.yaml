@@ -1,6 +1,6 @@
 name: jwt_generator
 description: A package for generating JWT.
-version: 0.0.1
+version: 0.0.2
 repository: https://github.com/elijardh/jwt_generator
 
 environment:
@@ -16,8 +16,5 @@ dev_dependencies:
   test: ^1.24.0
 
 false_secrets:
-  - "*.env"         # Exclude all .env files
-  - "private_key.pem"  # Exclude private key files
-  - "lib/config/*.json" # Exclude JSON config files in the lib/config directory
-  - "*.log"         # Exclude log files
-  - "secrets/**"   
+  - "example/jwt_generator_example.dart" 
+  - "README.md"

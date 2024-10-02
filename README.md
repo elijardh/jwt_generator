@@ -35,6 +35,7 @@ You can run a `dart pub get` or `flutter pub get` for Dart and Flutter respectiv
 
 **Example:**
 
+```
 import 'package:jwt_generator/jwt_generator.dart';
 
 void main() {
@@ -90,3 +91,4 @@ final isVerified = rsaVerifier.verify(
 
 print('Is signature verified: $isVerified');
 }
+```
