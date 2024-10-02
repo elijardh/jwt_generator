@@ -5,3 +5,11 @@
 # Avoid committing pubspec.lock for library packages; see
 # https://dart.dev/guides/libraries/private-files#pubspeclock.
 pubspec.lock
+
+false_secrets:
+  - "*.env"        # Exclude all .env files
+  - "private_key.pem"  # Exclude private key files
+  - "lib/config/*.json"  # Exclude JSON config files in lib/config directory
+  - "*.bak"         # Exclude all backup files
+  - "secret/*.txt"  # Exclude text files in the secret folder
+  - "*.log"         # Exclude log files
