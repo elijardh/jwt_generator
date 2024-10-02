@@ -1,7 +1,7 @@
 name: jwt_generator
 description: A package for generating JWT.
 version: 0.0.1
-repository: https://github.com/my_org/my_repo
+repository: https://github.com/elijardh/jwt_generator
 
 environment:
   sdk: ^3.5.2
