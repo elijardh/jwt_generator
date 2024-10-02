@@ -14,7 +14,7 @@ class RsaSignatureVerifier implements SignatureVerifier {
   final PublicKey publicKey;
   @override
   bool verify(String signedData, String base64signature) {
-    return _rsaVerify(publicKey, utf8.encode(signedData) as Uint8List,
+    return _rsaVerify(publicKey, utf8.encode(signedData),
         base64Url.decode(base64Url.normalize(base64signature)));
   }
 
