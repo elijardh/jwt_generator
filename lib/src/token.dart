@@ -4,7 +4,17 @@ abstract class TokenDto {
   Map<String, Object> buildClaims();
 }
 
-/// Firebase cloud messaging token
+/// Represents the Firebase Cloud Messaging (FCM) token and its associated JWT claims.
+/// This class is used to store token data needed for constructing a JWT.
+///
+/// Example:
+/// ```dart
+/// FcmTokenDto token = FcmTokenDto(
+///   alg: "RS256",
+///   aud: "https://fcm.googleapis.com/",
+///   additionalClaims: {"sub": "user123"},
+/// );
+/// ```
 class FcmTokenDto implements TokenDto {
   FcmTokenDto({
     DateTime? exp,
@@ -20,17 +30,29 @@ class FcmTokenDto implements TokenDto {
         'https://identitytoolkit.googleapis.com/google.identity.identitytoolkit.v1.IdentityToolkit',
   })  : exp = (iat ?? DateTime.now()).add(const Duration(hours: 1)),
         iat = iat ?? DateTime.now();
+
+  /// The algorithm used for signing the JWT.
+  /// Common values include 'RS256' (RSA Signature with SHA-256).
   final String alg;
   final String typ;
 
   final String iss;
   final String scope;
+
+  /// The audience (aud) claim, representing the intended recipient of the token.
+  /// In the context of FCM, this is often set to `https://fcm.googleapis.com/`.
   final String aud;
   final DateTime exp;
   final DateTime iat;
   final String? sub;
   final String? uid;
+
+  /// Any additional claims to be added to the JWT payload.
+  /// These claims can be custom data related to the user or device.
   final Map<String, dynamic>? additionalClaims;
+
+  /// Constructs the JWT header.
+  /// The header typically includes the algorithm (`alg`) and the token type (`typ`).
   @override
   Map<String, Object> buildHeader() {
     return {
@@ -39,6 +61,8 @@ class FcmTokenDto implements TokenDto {
     };
   }
 
+  /// Constructs the token claims for the JWT payload.
+  /// Combines predefined claims with any additional claims.
   @override
   Map<String, Object> buildClaims() {
     return {

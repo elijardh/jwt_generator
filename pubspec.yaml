@@ -1,6 +1,6 @@
 name: jwt_generator
-description: A package for generating JWT.
-version: 0.0.2
+description: A simple pure dart package used for creating and validating Json Web Tokens using the private and public key provided, refer to documentation for more information.
+version: 0.0.3
 repository: https://github.com/elijardh/jwt_generator
 
 environment:
